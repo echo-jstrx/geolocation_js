@@ -1,9 +1,12 @@
 <script>
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition((position) => {
-    alert(position.coords.latitude + ", " + position.coords.longitude);
+    const lat = position.coords.latitude;
+    const long = position.coords.longitude;
+    alert( lat + ", " + long);
   });
 } else {
-  /* geolocation IS NOT available */
+  const lat = 37.8136;
+  const long = 144.9631;
 }
 </script>
