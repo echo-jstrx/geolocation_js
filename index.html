@@ -5,9 +5,9 @@ if ("geolocation" in navigator) {
     const long = position.coords.longitude;
     const access_token = "pk.eyJ1IjoiYmV0dGFidWQiLCJhIjoiY2x6NjRxMjloMGZ3cjJrb3BpbnQ1ZjVpbSJ9.Li4FAxC1HCTovYqNMR8fTA";
     // alert( lat + ", " + long);
-    const data = fetch("https://api.mapbox.com/search/geocode/v6/reverse?longitude="+long+"&latitude="+lat+"&access_token="+access_token);
-    console.log(JSON.stringify(data))
-    alert(context.address.postcode);
+    fetch("https://api.mapbox.com/search/geocode/v6/reverse?longitude="+long+"&latitude="+lat+"&access_token="+access_token);
+    // console.log(JSON.stringify(data))
+    alert(JSON.stringify(FeatureCollection.properties.full_address));
   });
 } else {
   const lat = 37.8136;
