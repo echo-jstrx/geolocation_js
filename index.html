@@ -8,7 +8,7 @@ if ("geolocation" in navigator) {
     fetch("https://api.mapbox.com/search/geocode/v6/reverse?longitude="+long+"&latitude="+lat+"&access_token="+access_token)
       .then(response => response.json())
       .then(data => {
-        const full_address = data.features[0].properties.postcode;
+        const full_address = data.features[0].properties.context.postcode.name;
         alert(full_address);
       })
       .catch(error => console.error('Error:', error));
