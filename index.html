@@ -7,7 +7,7 @@ if ("geolocation" in navigator) {
     // alert( lat + ", " + long);
     fetch("https://api.mapbox.com/search/geocode/v6/reverse?longitude="+long+"&latitude="+lat+"&access_token="+access_token);
     // console.log(JSON.stringify(data))
-    alert(JSON.stringify(FeatureCollection.properties.full_address));
+    alert(JSON.stringify(full_address));
   });
 } else {
   const lat = 37.8136;
