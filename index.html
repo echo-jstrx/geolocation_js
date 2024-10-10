@@ -1,22 +1,19 @@
-<script>
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition((position) => {
     const lat = position.coords.latitude;
     const long = position.coords.longitude;
     const access_token = "pk.eyJ1IjoiYmV0dGFidWQiLCJhIjoiY2x6NjRxMjloMGZ3cjJrb3BpbnQ1ZjVpbSJ9.Li4FAxC1HCTovYqNMR8fTA";
-    // alert( lat + ", " + long);
-    fetch("https://api.mapbox.com/search/geocode/v6/reverse?longitude="+long+"&latitude="+lat+"&access_token="+access_token)
+    
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${long},${lat}.json?access_token=${access_token}`)
       .then(response => response.json())
       .then(data => {
-        // const full_address = data.features[0].properties.context.postcode.name;
-        // alert(full_address);
         const country = data.features.find(feature => feature.place_type.includes('country')).text;
         alert(country);
       })
       .catch(error => console.error('Error:', error));
+  }, (error) => {
+    console.error('Geolocation error:', error);
   });
 } else {
-  const lat = 37.8136;
-  const long = 144.9631;
+  console.error('Geolocation is not supported by this browser.');
 }
-</script>
