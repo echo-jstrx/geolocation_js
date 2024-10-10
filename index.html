@@ -1,4 +1,5 @@
-if ("geolocation" in navigator) {
+<script>
+  if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition((position) => {
     const lat = position.coords.latitude;
     const long = position.coords.longitude;
@@ -17,3 +18,5 @@ if ("geolocation" in navigator) {
 } else {
   console.error('Geolocation is not supported by this browser.');
 }
+
+</script>
