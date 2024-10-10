@@ -10,6 +10,8 @@ if ("geolocation" in navigator) {
       .then(data => {
         const full_address = data.features[0].properties.context.postcode.name;
         alert(full_address);
+        const country = data.features.find(feature => feature.place_type.includes('country')).text;
+        alert(country);
       })
       .catch(error => console.error('Error:', error));
   });
