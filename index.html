@@ -3,7 +3,7 @@
   navigator.geolocation.getCurrentPosition((position) => {
     const lat = position.coords.latitude;
     const long = position.coords.longitude;
-    const access_token = "pk.eyJ1IjoiYmV0dGFidWQiLCJhIjoiY2x6NjRxMjloMGZ3cjJrb3BpbnQ1ZjVpbSJ9.Li4FAxC1HCTovYqNMR8fTA";
+    const access_token = "";
     
     fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${long},${lat}.json?access_token=${access_token}`)
       .then(response => response.json())
